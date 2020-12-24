@@ -1,0 +1,357 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Montserrat&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+:root {
+  --text: #ffffff;
+  --line: #ffffff;
+  --line-active: #0e38ba;
+  --background-color-light: #004561;
+  --background-color-main: #001d26;
+  --background-color-dark: #000a0e;
+  --font-size: 1.125rem;
+  --font-size-lg: 2rem;
+  --font-size-xl: 3rem;
+  --border: #ffffff;
+}
+
+.day {
+  --line-active: #e15e15;
+  --background-color-light: #6db9d5;
+  --background-color-main: #315599;
+  --background-color-dark: #072e74;
+}
+
+
+.outer {
+  background: var(--background-color-main);
+  background: -webkit-linear-gradient(
+    right,
+    var(--background-color-light) 0%,
+    var(--background-color-main) 50%,
+    var(--background-color-dark) 100%
+  );
+  background: -o-linear-gradient(
+    right,
+    var(--background-color-light) 0%,
+    var(--background-color-main) 50%,
+    var(--background-color-dark) 100%
+  );
+  background: linear-gradient(
+    to left,
+    var(--background-color-light) 0%,
+    var(--background-color-main) 50%,
+    var(--background-color-dark) 100%
+  );
+  width: 100%;
+  z-index: 5;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.moon {
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  right: 10%;
+  top: 10%;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.sun {
+  position: absolute;
+  width: 33rem;
+  height: 33rem;
+  right: 4.5%;
+  top: -1%;
+  z-index: 5;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  visibility: visible;
+  -webkit-transform: translate3d(150%, 50%, 0);
+  transform: translate3d(150%, 50%, 0);
+}
+
+.day .sun{
+    visibility: visible;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.day .moon{
+    -webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(-150%, -150%, 0);
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 15;
+  color: var(--text);
+  padding: 9rem 5rem;
+  width: 60%;
+}
+
+p {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin: 1rem 0;
+  color: var(--text);
+  letter-spacing: 1px;
+}
+
+h1::selection,
+h2::selection,
+p::selection {
+  background-color: #0c0c04;
+  color: #c3dae5;
+}
+
+a::selection {
+  background-color: #04397e;
+  color: #c3dae5;
+}
+
+.image-content {
+  display: flex;
+  align-items: center;
+}
+
+.image-content h1 {
+  font-size: 3rem;
+  margin-left: 2rem;
+}
+
+h1,
+h2 {
+  font-family: "Lato", sans-serif;
+}
+
+.profile {
+  width: 12rem;
+  height: 12rem;
+  object-fit: cover;
+  border-radius: 7.5rem;
+  border: 3px solid var(--border);
+}
+
+.text-content {
+  margin-top: 2rem;
+}
+
+.text-content h2 {
+  font-size: 2rem;
+}
+
+.social-content p a {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+.social-content p a svg {
+  width: 115px;
+  height: 50px;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 7px) translateZ(0);
+  fill: none;
+  stroke: var(--stroke, var(--line));
+  stroke-linecap: round;
+  stroke-width: 2px;
+  stroke-dasharray: var(--offset, 69px) 278px;
+  stroke-dashoffset: 361px;
+  transition: stroke 0.25s ease var(--stroke-delay, 0s), stroke-dasharray 0.35s;
+}
+.social-content p a:hover {
+  --stroke: var(--line-active);
+  --stroke-delay: 0.1s;
+  --offset: 180px;
+}
+
+@media only screen and (max-width: 480px) {
+}
+
+.day .clouds {
+    opacity: 1;
+}
+
+.clouds {
+  position: absolute;
+  right: 5%;
+  top: 0;
+  width: 30rem;
+  height: 30rem;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.cloud {
+  width: 50px;
+  height: 50px;
+  animation-name: wiggle;
+  animation-duration: 10s;
+  background-color: white;
+  display: block;
+  border-radius: 50%;
+  float: left;
+  position: absolute;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  transform-origin: 50% 50%;
+  transition: all 0.3s ease-out;
+}
+
+.cloud:after,
+.cloud:before {
+  animation-name: none;
+  transform: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: white;
+  content: "";
+}
+
+.cloud:after {
+  left: 150%;
+  box-shadow: -50px -25px 0px 10px white, -10px -25px 0px -5px white,
+    inset -7px 0px 0px 3px #f5f4f4;
+}
+
+.cloud:before {
+  left: 50%;
+  top: 0;
+  border-radius: 0;
+  width: 75px;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(50px, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+.cloud-1 {
+  top: 50%;
+  right: 90%;
+  z-index: 6;
+}
+
+.cloud-2 {
+  top: 80%;
+  right: 65%;
+  z-index: 6;
+}
+
+.cloud-3 {
+    top: 70%;
+  right: 30%;
+  z-index: 2;
+}
+
+
+.switch {
+  position: fixed;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  bottom: 3rem;
+  right:3rem;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
