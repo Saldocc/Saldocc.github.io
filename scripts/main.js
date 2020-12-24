@@ -1,8 +1,8 @@
 const main = document.querySelector("main");
 const slider = document.querySelector("#slider");
 let canvas = document.getElementById("star-canvas");
-let width = document.querySelector(".outer").clientWidth;
-let height = document.querySelector(".outer").clientHeight;
+let width = document.querySelector(".outer").scrollWidth;
+let height = document.querySelector(".outer").scrollHeight;
 canvas.width = width;
 canvas.height = height;
 let c = canvas.getContext("2d");
@@ -106,7 +106,6 @@ function setTheme(themeName) {
 }
 
 function toggleTheme() {
-  console.log("onclick", localStorage.getItem("theme"));
   if (localStorage.getItem("theme") === "night") {
     setTheme("day");
   } else {
@@ -115,7 +114,6 @@ function toggleTheme() {
 }
 
 (function () {
-  console.log("onload", localStorage.getItem("theme"));
   if (localStorage.getItem("theme") === "night") {
     setTheme("night");
     slider.checked = false;
