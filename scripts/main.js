@@ -1,13 +1,11 @@
+const main = document.querySelector("main")
+const slider = document.querySelector("#slider")
 let canvas = document.getElementById("star-canvas");
 let width = document.querySelector(".outer").clientWidth;
 let height = document.querySelector(".outer").clientHeight;
-
 canvas.width = width;
 canvas.height = height;
 let c = canvas.getContext("2d");
-
-console.log(width, height, c)
-
 
 function Star(x, y, dx, dy, radius) {
     this.x = x;
@@ -96,15 +94,30 @@ let int = setInterval(function () {
 }, 3000);
 
 
-
-const main = document.querySelector("main")
-
-function toggleTheme() {
-    if (main.className.includes("day")) {
-        main.classList.remove("day")
-        canvas.hidden = false;
-    } else {
-        main.classList.add("day")
+function setTheme(themeName) {
+    localStorage.setItem('theme', themeName);
+    main.className = themeName;
+    if(themeName==="day"){
         canvas.hidden = true;
+    }else{
+        canvas.hidden = false;
     }
 }
+
+function toggleTheme() {
+    if (localStorage.getItem('theme') === 'night') {
+        setTheme('day');
+    } else {
+        setTheme('night');
+    }
+}
+
+(function () {
+    if (localStorage.getItem('theme') === 'night') {
+        setTheme('night');
+        slider.checked = false;
+    } else {
+        setTheme('day');
+        slider.checked = true;
+    }
+})();

@@ -6,27 +6,37 @@
     <title>devSaldoc</title>
     <link rel="icon" type="image/png" href="./favicon.png" />
     <link rel="stylesheet" href="./styles/main.css" />
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KBK94XL");
+    </script>
+    <!-- End Google Tag Manager -->
   </head>
 
   <body>
     <main class="main">
       <div class="outer">
         <canvas id="star-canvas" height="100%" width="100%"></canvas>
-        <img class="moon" src="./images/moon.png" alt="moon" /> 
+        <img class="moon" src="./images/moon.png" alt="moon" />
         <img class="sun" src="./images/sun.png" alt="sun" />
         <div class="clouds">
-            <div class="cloud cloud-1"></div>
-            <div class="cloud cloud-2"></div>
-            <div class="cloud cloud-3"></div>
+          <div class="cloud cloud-1"></div>
+          <div class="cloud cloud-2"></div>
+          <div class="cloud cloud-3"></div>
         </div>
       </div>
       <section class="content">
         <div class="image-content">
-          <img
-            class="profile"
-            src="./images/profile.png"
-            alt="profile"
-          />
+          <img class="profile" src="./images/profile.png" alt="profile" />
           <h1>Welcome aboard, visitor!</h1>
         </div>
         <div class="text-content">
@@ -88,13 +98,23 @@
             </a>
           </p>
         </div>
-        <label class="switch">
-          <input type="checkbox" onchange="toggleTheme()">
+        <label id="switch" class="switch">
+          <input type="checkbox" onchange="toggleTheme()" id="slider" />
           <span class="slider round"></span>
         </label>
       </section>
     </main>
   </body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript
+    ><iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-KBK94XL"
+      height="0"
+      width="0"
+      style="display: none; visibility: hidden"
+    ></iframe
+  ></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <script src="./scripts/main.js"></script>
 </html>
