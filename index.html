@@ -6,11 +6,30 @@
     <title>devSaldoc</title>
     <link rel="icon" type="image/png" href="./favicon.png" />
     <link rel="stylesheet" href="./styles/main.css" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-688PPJL43W"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-688PPJL43W");
+    </script>
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        w[l].push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+        });
         var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
           dl = l != "dataLayer" ? "&l=" + l : "";
@@ -23,7 +42,7 @@
   </head>
 
   <body>
-    <main class="main">
+    <main>
       <div class="outer">
         <canvas id="star-canvas" height="100%" width="100%"></canvas>
         <img class="moon" src="./images/moon.png" alt="moon" />
@@ -54,6 +73,12 @@
           <p>
             I love looking at the code screen. It reminds me of infinite space
             that gives me freedom. Also, waiting to be discovered.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum
+            quas facilis soluta minima, doloremque aut corporis accusantium vero
+            cupiditate maiores nihil asperiores blanditiis error quod vitae
+            necessitatibus voluptatum non temporibus?
           </p>
         </div>
         <div class="social-content">
@@ -115,6 +140,5 @@
     ></iframe
   ></noscript>
   <!-- End Google Tag Manager (noscript) -->
-
   <script src="./scripts/main.js"></script>
 </html>
